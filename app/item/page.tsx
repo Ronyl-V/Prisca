@@ -2,7 +2,6 @@
 
 import ItemClient, { CategorieAliment } from "./ItemClient";
 
-// CONSTANTES
 const regions = [
   "Centre","Littoral","Ouest","Nord","Adamaoua",
   "Nord-Ouest","Sud-Ouest","Est","Sud","Extrême-Nord"
