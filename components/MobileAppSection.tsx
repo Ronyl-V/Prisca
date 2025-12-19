@@ -63,7 +63,7 @@ const MobileAppSection = () => {
         >
           <div className="relative w-[250px] h-[500px] rounded-3xl shadow-2xl overflow-hidden border-4 border-white/10 bg-black">
             <Image
-              src="/Logo.png" 
+              src="/logo.png" 
               alt="Aperçu de l'application Prisca"
               fill
               className="object-contain"

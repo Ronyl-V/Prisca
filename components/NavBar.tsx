@@ -10,7 +10,7 @@ const NavBar = () => {
       <div className="bg-white bg-opacity-90 backdrop-blur-md shadow-md flex items-center justify-between px-16 h-24 relative z-[50]">
         <Link href="/" className="flex items-center h-full">
           <div className="relative w-[80px] h-[80px]">
-            <Image src="/Logo.png" alt="Logo" fill priority className="object-contain" />
+            <Image src="/logo.png" alt="Logo" fill priority className="object-contain" />
           </div>
         </Link>
 
