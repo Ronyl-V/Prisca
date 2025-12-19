@@ -61,7 +61,7 @@ const MobileAppSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex justify-center"
         >
-          <div className="relative w-[250px] h-[500px] rounded-3xl shadow-2xl overflow-hidden border-4 border-white/10 bg-black">
+          <div className="hidden lg:block md:block relative w-[250px] h-[500px] rounded-3xl shadow-2xl overflow-hidden border-4 border-white/10 bg-black">
             <Image
               src="/logo.png" 
               alt="Aperçu de l'application Prisca"
