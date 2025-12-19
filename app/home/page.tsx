@@ -159,7 +159,6 @@ const HomePage = () => {
 
 <MobileAppSection />
 
-<Footer />
    </>
   );
 };
