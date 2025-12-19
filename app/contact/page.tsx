@@ -4,6 +4,7 @@ import emailjs from 'emailjs-com';
 import Image from 'next/image';
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import TopMenuOverlay from '@/components/TopMenuOverlay';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -31,6 +32,7 @@ const Contact = () => {
   return (
     <>
       <NavBar />
+      <TopMenuOverlay />
       <div className="min-h-screen flex items-center justify-center mt-20 p-4 sm:p-8 bg-white relative">
         <form
           onSubmit={sendEmail}
@@ -92,18 +94,6 @@ const Contact = () => {
               >
                 SEND
               </button>
-              <p className="hidden sm:block">Or</p>
-              <a
-                href="https://wa.me/237676127652"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-1/2 cursor-pointer flex flex-row gap-2 justify-center items-center bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition"
-              >
-                Contact Us Here
-                <span className="rounded-full bg-white p-1">
-                  <Image src="/whatsapp.png" alt="whatsapp" width={30} height={30} />
-                </span>
-              </a>
             </div>
           </div>
 
@@ -116,7 +106,7 @@ const Contact = () => {
             <div className="space-y-3">
               <p className="flex items-center gap-2">
                 <span className="text-gray-400">Phone:</span>
-                <span>+237 6 76 12 76 52</span>
+                <span>+237 6 53 73 23 13</span>
               </p>
               <p className="flex items-center gap-2">
                 <span className="text-gray-400">Address:</span>

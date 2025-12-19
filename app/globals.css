@@ -3,7 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -42,7 +41,18 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-folder-back: var(--folder-back);
+  --color-folder-front: var(--folder-front);
+  --color-folder-tab: var(--folder-tab);
+  --radius: var(----radius);
 }
+
+body {
+  font-family: var(--font-winky), serif;
+}
+
+@layer base {
 
 :root {
   --radius: 0.625rem;
@@ -69,6 +79,9 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  --chart-actual: 152 50% 50%;
+  --chart-predicted: 42 85% 55%;
+  --chart-grid: 150 15% 25%;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -77,6 +90,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --folder-back: oklch(0.75 0.12 45);
+  --folder-front: oklch(0.8 0.14 50);
+  --folder-tab: oklch(0.7 0.1 40);
 }
 
 .dark {
@@ -111,18 +128,34 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --folder-back: oklch(0.65 0.12 45);
+  --folder-front: oklch(0.7 0.14 50);
+  --folder-tab: oklch(0.6 0.1 40);
+}
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+
 @media (min-width: 1025px) {
   .show-after-1024 {
     display: block;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 768px) {
+  .custom-break\:flex-col {
+    flex-direction: column !important;
+  }
+
+  .custom-break\:md\:rounded-r-md {
+    border-radius: 0.375rem !important; /* annule le arrondi droit pour bouton */
+  }
+
+  .custom-break\:md\:rounded-l-md {
+    border-radius: 0.375rem !important; /* annule le arrondi gauche pour input */
+  }
+
+  .custom-break\:mt-2 {
+    margin-top: 0.5rem !important; /* ajoute un petit espace entre input et bouton */
   }
 }

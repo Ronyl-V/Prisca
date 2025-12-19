@@ -1,20 +1,14 @@
 'use client';
 
 import { Menu, X } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const MobileMenu = () => {
   const [open, setOpen] = useState(false);
 
-  // Lock scroll when menu is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
+    document.body.style.overflow = open ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
@@ -22,24 +16,31 @@ const MobileMenu = () => {
 
   return (
     <>
-      <button onClick={() => setOpen(true)} className="md:hidden z-50">
+      {/* Hamburger — visible seulement mobile */}
+      <button
+        onClick={() => setOpen(true)}
+        className="fixed top-8 right-6 md:hidden z-[1000]"
+        aria-label="Open menu"
+      >
         <Menu size={28} className="text-black" />
       </button>
 
+      {/* Fullscreen menu */}
       {open && (
-        <div className="fixed inset-0 bg-black text-white z-50 flex flex-col items-center justify-center space-y-8 text-xl font-medium">
-          {/* Close Button */}
+        <div className="fixed inset-0 z-[10000] bg-black text-white flex flex-col items-center justify-center gap-10 text-xl">
+          
           <button
             onClick={() => setOpen(false)}
-            className="absolute top-6 right-6 text-white"
+            className="absolute top-6 right-6"
+            aria-label="Close menu"
           >
             <X size={32} />
           </button>
 
-          {/* Menu Items */}
-          <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-          <Link href="/products" onClick={() => setOpen(false)}>Products</Link>
-          <Link href="/blog" onClick={() => setOpen(false)}>About</Link>
+          <Link href="/" onClick={() => setOpen(false)}>Accueil</Link>
+          <Link href="/prevision" onClick={() => setOpen(false)}>Prévision</Link>
+          <Link href="/marches" onClick={() => setOpen(false)}>Marchés</Link>
+          <Link href="/prix" onClick={() => setOpen(false)}>Prix</Link>
           <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </div>
       )}
