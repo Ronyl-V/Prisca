@@ -1191,32 +1191,42 @@ const MarchesPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex gap-3 items-center">
-            <div className="relative">
-              <input
-                value={query}
-                onChange={(e) => { setQuery(e.target.value); setCurrentPage(1); }}
-                placeholder="Rechercher marché, produit ou adresse..."
-                className="pl-10 pr-4 py-2 rounded-lg ring-0 border border-gray-300 bg-whitew-80"
-              />
-              <div className="absolute left-3 top-2.5 text-gray-400"><Search size={16} /></div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-3 items-center w-full">
+  {/* Input de recherche */}
+  <div className="relative w-full sm:w-auto flex-1">
+    <input
+      value={query}
+      onChange={(e) => { setQuery(e.target.value); setCurrentPage(1); }}
+      placeholder="Rechercher marché, produit ou adresse..."
+      className="pl-10 pr-4 py-2 rounded-lg border border-gray-300 w-full sm:w-80 bg-white"
+    />
+    <div className="absolute left-3 top-2.5 text-gray-400">
+      <Search size={16} />
+    </div>
+  </div>
 
-            <select
-              value={regionFilter}
-              onChange={(e) => { setRegionFilter(e.target.value as string | "Tout"); setCurrentPage(1); }}
-              className="rounded-lg ring-0 border border-gray-300 py-2 px-3 bg-white"
-            >
-              {regions.map((r) => <option key={r} value={r}>{r}</option>)}
-            </select>
+  {/* Filtre par région */}
+  <select
+    value={regionFilter}
+    onChange={(e) => { setRegionFilter(e.target.value as string | "Tout"); setCurrentPage(1); }}
+    className="rounded-lg border border-gray-300 py-2 px-3 bg-white w-full sm:w-auto"
+  >
+    {regions.map((r) => <option key={r} value={r}>{r}</option>)}
+  </select>
 
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value as any)} className="rounded-lg ring-0 border border-gray-300 py-2 px-3 bg-white">
-              <option value="recent">Tendances</option>
-              <option value="price-asc">Prix croissant</option>
-              <option value="price-desc">Prix décroissant</option>
-              <option value="name">Nom</option>
-            </select>
-          </div>
+  {/* Tri */}
+  <select
+    value={sortBy}
+    onChange={(e) => setSortBy(e.target.value as any)}
+    className="rounded-lg border border-gray-300 py-2 px-3 bg-white w-full sm:w-auto"
+  >
+    <option value="recent">Tendances</option>
+    <option value="price-asc">Prix croissant</option>
+    <option value="price-desc">Prix décroissant</option>
+    <option value="name">Nom</option>
+  </select>
+</div>
+
         </header>
 
         {/* layout */}
