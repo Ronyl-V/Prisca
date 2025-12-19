@@ -18,39 +18,41 @@ const HomePage = () => {
   <NavBar />
   <TopMenuOverlay />
 
-  <div className="flex flex-col lg:flex-row flex-1 pl-6 lg:pl-20 pr-6 lg:pr-10 items-start lg:items-center gap-10 lg:gap-x-20 relative
-                  lg:min-h-screen
-                  pt-24 sm:pt-28 md:pt-32 lg:pt-0 sm:pb-20 lg:pb-0">
+<div className="flex flex-col lg:flex-row flex-1 pl-6 lg:pl-20 pr-6 lg:pr-10 items-start lg:items-center gap-10 lg:gap-x-20 relative
+                lg:min-h-screen
+                pt-32 sm:pt-36 lg:pt-0   /* plus d'espace en haut pour mobile et tablette */
+                pb-16 sm:pb-20 lg:pb-0">  {/* plus d'espace en bas pour mobile et tablette */}
 
-    {/* Texte à gauche */}
-    <div className="w-full lg:w-1/2 flex flex-col text-white">
-      <p className="text-3xl sm:text-4xl lg:text-[40px] leading-tight font-extrabold">
-        Bienvenue sur <span className="text-red-400">Prisca</span> —<br />
-        L’intelligence des marchés au Cameroun, à portée de main{" "}
-        <span className="text-gray-400 block mt-2 text-lg sm:text-xl lg:text-2xl font-semibold">
-          Suivez les prix des aliments sur les marchés nationaux avec clarté et précision.
-        </span>
-      </p>
-      <Link href="/register" className="w-10">
-        <Button className="animate-pulseGrow mt-6 lg:mt-10 bg-white text-black px-6 lg:px-8 py-3 text-lg font-semibold flex items-center gap-3 shadow-lg cursor-pointer hover:bg-red-400 hover:text-white transition-colors duration-300">
-          Get Started
-          <ArrowRight size={20} />
-        </Button>
-      </Link>
-    </div>
+  {/* Texte à gauche */}
+  <div className="w-full lg:w-1/2 flex flex-col text-white">
+    <p className="text-3xl sm:text-4xl lg:text-[40px] leading-tight font-extrabold mb-6">
+      Bienvenue sur <span className="text-red-400">Prisca</span> —<br />
+      L’intelligence des marchés au Cameroun, à portée de main
+      <span className="text-gray-400 block mt-2 text-lg sm:text-xl lg:text-2xl font-semibold">
+        Suivez les prix des aliments sur les marchés nationaux avec clarté et précision.
+      </span>
+    </p>
 
-    {/* Image à droite: disparait sur tablette et mobile */}
-    <div id="hero-image" className="hidden lg:block w-full lg:w-1/2 relative h-screen z-[200]">
-      <Image
-        src="/03.jpg"
-        alt="Image01"
-        fill
-        className="object-cover"
-      />
-    </div>
+    <Link href="/register" className="w-full sm:w-auto">
+      <Button className="animate-pulseGrow mt-6 lg:mt-10 bg-white text-black px-6 lg:px-8 py-3 text-lg font-semibold flex items-center gap-3 shadow-lg cursor-pointer hover:bg-red-400 hover:text-white transition-colors duration-300">
+        Get Started
+        <ArrowRight size={20} />
+      </Button>
+    </Link>
+  </div>
+
+  {/* Image à droite */}
+  <div id="hero-image" className="hidden lg:block w-full lg:w-1/2 relative h-[60vh] lg:h-screen z-[200]">
+    <Image
+      src="/03.jpg"
+      alt="Image01"
+      fill
+      className="object-cover"
+    />
   </div>
 </div>
 
+</div>
 
   <NavIcons />
 
