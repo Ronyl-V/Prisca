@@ -1,7 +1,7 @@
-"use client";
-
+import { Suspense } from "react";
 import ItemClient, { CategorieAliment } from "./ItemClient";
 
+// CONSTANTES
 const regions = [
   "Centre","Littoral","Ouest","Nord","Adamaoua",
   "Nord-Ouest","Sud-Ouest","Est","Sud","Extrême-Nord"
@@ -35,13 +35,20 @@ const categoriesDataSeed: CategorieAliment[] = [
   {
     nom: "Viandes et Poissons",
     aliments: [
-      { nom: "Bœuf", prixParRegion: { Centre:3200, Littoral:3300, Ouest:3100, Nord:3500, Adamaoua:3000, "Nord-Ouest":3150, "Sud-Ouest":3250, Est:2950, Sud:3200, "Extrême-Nord":3450 }, image:"/produits/boeuf.jpg" },
+      { nom: "Boeuf", prixParRegion: { Centre:3200, Littoral:3300, Ouest:3100, Nord:3500, Adamaoua:3000, "Nord-Ouest":3150, "Sud-Ouest":3250, Est:2950, Sud:3200, "Extrême-Nord":3450 }, image:"/produits/boeuf.jpg" },
       { nom: "Porc", prixParRegion: { Centre:3000, Littoral:3100, Ouest:2900, Nord:3300, Adamaoua:2800, "Nord-Ouest":2950, "Sud-Ouest":3050, Est:2750, Sud:3000, "Extrême-Nord":3250 }, image:"/produits/porc.jpg" },
       { nom: "Poisson", prixParRegion: { Centre:1600, Littoral:1650, Ouest:1550, Nord:1700, Adamaoua:1500, "Nord-Ouest":1580, "Sud-Ouest":1620, Est:1480, Sud:1600, "Extrême-Nord":1680 }, image:"/produits/poisson.jpg" },
     ]
   },
 ];
 
+
+
 export default function ItemPage() {
-  return <ItemClient regions={regions} categoriesDataSeed={categoriesDataSeed} />;
+  return (
+    <Suspense fallback={<div>Chargement...</div>}>
+      <ItemClient regions={regions} categoriesDataSeed={categoriesDataSeed} />
+    </Suspense>
+  );
 }
+
